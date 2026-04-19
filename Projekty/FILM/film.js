@@ -119,21 +119,26 @@ function render(p) {
       ? `<li>${p.director}</li>`
       : "<li>Neuvedeno</li>";
   }
-}
-// ▶️ PLAY BUTTON
-const playBtn = document.getElementById("play-btn");
+// ▶️ WATCH BUTTON
+const watchBtn = document.getElementById("watch-button");
 const state = document.getElementById("project-state");
 
-if (playBtn) {
-  playBtn.onclick = () => {
-    const url = p.url;
+if (watchBtn) {
+  const url = p.url;
 
-    if (url && url.trim() !== "") {
-      window.location.href = url;
-    } else {
+  // zobraz tlačítko vždy
+  watchBtn.hidden = false;
+
+  if (url && url.trim() !== "") {
+    watchBtn.href = url;
+  } else {
+    watchBtn.href = "#";
+
+    watchBtn.onclick = (e) => {
+      e.preventDefault();
       if (state) {
         state.textContent = "Projekt nebyl doposud zveřejněn";
       }
-    }
-  };
+    };
+  }
 }
