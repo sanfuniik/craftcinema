@@ -1,7 +1,20 @@
 [build]
   publish = "."
+  command = ""
 
+# ROOT -> HOME
 [[redirects]]
   from = "/"
+  to = "/home/home.html"
+  status = 200
+
+# fallback pro home route
+[[redirects]]
+  from = "/home"
+  to = "/home/home.html"
+  status = 200
+
+[[redirects]]
+  from = "/home/"
   to = "/home/home.html"
   status = 200
