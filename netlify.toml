@@ -3,5 +3,5 @@
 
 [[redirects]]
   from = "/"
-  to = "/home/home"
+  to = "/home/home.html"
   status = 200
