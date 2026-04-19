@@ -17,5 +17,5 @@
 
 [[redirects]]
   from = "/Projekty/FILM/*"
-  to = "Projekty/FILM/film.html"
+  to = "/Projekty/FILM/film.html"
   status = 200
