@@ -16,6 +16,6 @@
   force = false
 
 [[redirects]]
-  from = "/FILM/*"
-  to = "/FILM/film.html"
+  from = "/Projekty/FILM/*"
+  to = "Projekty/FILM/film.html"
   status = 200
