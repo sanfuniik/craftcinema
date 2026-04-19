@@ -1,97 +1,73 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CraftCinema – Domov</title>
-  <link rel="stylesheet" href="home.css" />
- <link rel="icon" type="image/png" href="favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CraftCinema – Domov</title>
+
+  <!-- FIX: absolutní cesta kvůli Netlify -->
+  <link rel="stylesheet" href="/home/home.css" />
+  <link rel="icon" type="image/png" href="/home/favicon.png" />
 </head>
+
 <body>
 
-    <header class="site-header">
-    <div class="header-left">
-      <div class="logo">CraftCinema</div>
-    </div>
+<header class="site-header">
+  <div class="header-left">
+    <div class="logo">CraftCinema</div>
+  </div>
 
-    <nav class="header-nav">
-      <a href="#" class="nav-link">Domov</a>
-      <a href="../Projekty/" class="nav-link">Projekty</a>
-      <a href="../Novinky/" class="nav-link">Novinky</a>
-      <a href="../casting-daberi/" class="nav-link">Castingy – Dabéři</a>
-      <a href="../casting-role/" class="nav-link">Castingy – Ostatní Role</a>
-      <a href="../nabor-a-team/" class="nav-link">Nábor - A-Team</a>
-    </nav>
-  </header>
+  <nav class="header-nav">
+    <a href="/home/home.html" class="nav-link">Domov</a>
+    <a href="/Projekty/" class="nav-link">Projekty</a>
+    <a href="/Novinky/" class="nav-link">Novinky</a>
+    <a href="/casting-daberi/" class="nav-link">Castingy – Dabéři</a>
+    <a href="/casting-role/" class="nav-link">Castingy – Ostatní Role</a>
+    <a href="/nabor-a-team/" class="nav-link">Nábor - A-Team</a>
+  </nav>
+</header>
 
-    <main>
-    <section class="hero">
-      <div class="hero-left">
-        <h1 class="hero-title">Vítejte v CraftCinema</h1>
-        <p class="hero-sub">Jsme nové Minecraft filmové studio, co ale uspokokojí vaše představy o pravé kinematografii.</p>
+<main>
 
-        <div class="hero-actions">
-          <a href="../Projekty/" class="btn primary">Naše tvorba →</a>
-          <a href="#castingy" class="btn ghost">Castingy</a>
-          <a href="#nabory" class="btn ghost">Nábory</a>
-        </div>
-      </div>
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="hero-title">Vítejte v CraftCinema</h1>
+      <p class="hero-sub">
+        Jsme nové Minecraft filmové studio.
+      </p>
 
-      <div class="hero-right">
-        <div class="hero-img-wrap">
-          <img id="hero-img" src="u1.png" alt="Hlavní vizuál CraftCinema" />
-        </div>
-      </div>
-    </section>
+      <div class="hero-actions">
+        <a href="/Projekty/" class="btn primary">Naše tvorba →</a>
+        <a href="#castingy" class="btn ghost">Castingy</a>
+        <a href="#nabory" class="btn ghost">Nábory</a>
+      </div>
+    </div>
 
-        <section class="reveal tvorba-section" id="tvorba">
-      <h2 class="tvorba-title">Naše tvorba</h2>
-      <p class="tvorba-text">
-      <p>Naše portfolio zahrnuje rozsáhlou škálu děl – od filmů a seriálů až po krátké a zábavné sketche.
-<p> Neustále pracujeme na nových projektech, takže se můžete těšit na mnoho projektů
-<p>→ Klikněte na tlačítko níže a prohlédněte si náš kompletní katalog projektů!
-      </p>
-      <a href="../Projekty/" class="tvorba-button">Zobrazit všechny projekty →</a>       
-</section>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <img id="hero-img" src="/home/u1.png" alt="Hlavní vizuál CraftCinema" />
+      </div>
+    </div>
+  </section>
 
-        <section class="reveal info-section" id="castingy">
-      <h3>Castingy – Dabéři & Role</h3>
-      <p>Chceš se aktivně podílet na vývoji a tvorbě kinematografických projektů?
- <p>Láká tě nahlédnout pod pokličku dabingu, střihu, produkce nebo jiných filmových profesí?
+  <section id="tvorba">
+    <h2>Naše tvorba</h2>
+    <p>
+      Portfolio filmů, seriálů a sketchů.
+    </p>
+    <a href="/Projekty/" class="btn primary">Zobrazit projekty</a>
+  </section>
 
-<p>Pokud máš chuť sbírat zkušenosti a rozvíjet své dovednosti v kreativním prostředí, přidej se k našemu týmu!
+</main>
 
-<p>Níže najdeš oblasti, ve kterých aktuálně hledáme pomoc a nové talenty. </p>
-      <div class="casting-buttons">
-        <a href="../casting-daberi/" class="btn ghost">Dabéři →</a>         <a href="../casting-role/" class="btn ghost">Ostatní role →</a>       </div>
-    </section>
-
-        <section class="reveal info-section" id="nabory">
-      <h3>Nábor – A-Team</h3>
-      <p>Za úspěchem našich projektů stojí silný a sehraný tým (A-Team), klíčový pro vedení, strategický vývoj a zajištění kvality studia.
-
-<p>Nehledáš-li zkušenosti v kinematografii, ale chceš pomoci s rozvojem komunity, připoj se k nám!
-
-<p>Vyzkoušej si vedení komunitního serveru, řešení každodenních otázek a pomoz nám utvářet budoucnost, která přímo ovlivní studio.
-
-</p>
-      <a href="../nabor-a-team/" class="btn ghost">Více info →</a>     </section>
-
-        <section class="reveal info-section" id="novinky">
-      <h3>Novinky</h3>
-      <p id="news-list">Zde uvidíte zkrácené novinky ohledně studia a stránky. Pro úplné informace klikněte na tlačítko Novinky ( na headeru ). </p>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-  <div>
-    Toto je jediná prává stránka pro studio CraftCinema! Více informací -> 
-    <a href="https://discord.gg/6YNACTyS2F" target="_blank" rel="noopener noreferrer">Discord</a>
-  </div>
+<footer class="site-footer">
+  <div>
+    CraftCinema ©
+  </div>
 </footer>
 
+<!-- FIX: absolutní cesta -->
+<script src="/home/home.js"></script>
 
-  <script src="home.js"></script>
 </body>
 </html>
