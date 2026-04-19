@@ -2,7 +2,7 @@
 
 /* 1) Random hero image (U1–U4) + smooth fade/replace + auto-cycle */
 (function() {
-  const images = ["u1.png","u2.png","u3.png","u4.png"];
+  const images = ["U1.png","U2.png","U3.png","U4.png"];
   const el = document.getElementById("hero-img");
   if (!el) return;
 
