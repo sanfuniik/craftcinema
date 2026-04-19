@@ -1,17 +1,12 @@
 [build]
   publish = "."
-  command = ""
 
-# 🔥 force root-like routing (hlavní fix)
+[[redirects]]
+  from = "/"
+  to = "/home/index.html"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/:splat"
   status = 200
-
-# 🧠 fallback pro SPA (kdyby ses někdy dostal do routingu)
-[[redirects]]
-  from = "/*"
-  to = "/home/home.html"
-  status = 200
-  force = false
-
