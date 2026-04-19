@@ -50,3 +50,8 @@
 .film-detail h2 {
   margin-top: 30px;
 }
+#project-state{
+  margin-top:10px;
+  color:rgba(255,120,120,0.9);
+  font-weight:600;
+}
