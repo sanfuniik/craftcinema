@@ -15,7 +15,3 @@
   status = 200
   force = false
 
-[[redirects]]
-  from = "/Projekty/FILM/*"
-  to = "/Projekty/FILM/film.html"
-  status = 200
