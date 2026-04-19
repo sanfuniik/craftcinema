@@ -120,3 +120,20 @@ function render(p) {
       : "<li>Neuvedeno</li>";
   }
 }
+// ▶️ PLAY BUTTON
+const playBtn = document.getElementById("play-btn");
+const state = document.getElementById("project-state");
+
+if (playBtn) {
+  playBtn.onclick = () => {
+    const url = p.url;
+
+    if (url && url.trim() !== "") {
+      window.location.href = url;
+    } else {
+      if (state) {
+        state.textContent = "Projekt nebyl doposud zveřejněn";
+      }
+    }
+  };
+}
