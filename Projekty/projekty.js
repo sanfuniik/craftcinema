@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     projectListEl.innerHTML = projects
       .map((p) => {
         const img = getImage(p);
-        const url = `../FILM/film.html?id=${encodeURIComponent(p.id)}`;
+        const url = `/Projekty/FILM/film.html?id=${encodeURIComponent(p.id)}`;
 
         return `
           <article class="project-card">
