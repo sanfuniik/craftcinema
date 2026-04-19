@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CraftCinema</title>
+
+  <link rel="stylesheet" href="../home.css" />
+  <link rel="stylesheet" href="film.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-left">
+    <div class="logo">CraftCinema</div>
+  </div>
+
+  <nav class="header-nav">
+    <a href="../Home/" class="nav-link">Domov</a>
+    <a href="../Projekty/" class="nav-link">Projekty</a>
+    <a href="../Novinky/" class="nav-link">Novinky</a>
+    <a href="../casting-daberi/" class="nav-link">Castingy - Dabéři</a>
+    <a href="../casting-role/" class="nav-link">Castingy - Ostatní Role</a>
+    <a href="../nabor-a-team/" class="nav-link">Nábor - A-Team</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="project-state" style="padding:20px;"></section>
+
+  <section class="film-hero">
+
+    <div class="film-bg" id="project-backdrop"></div>
+
+    <div class="film-hero-content">
+
+      <h1 id="project-title">Načítám...</h1>
+
+      <div class="meta">
+        <span id="project-year">-</span>
+        <span id="project-duration">-</span>
+        <span id="project-genre">-</span>
+        <span id="project-rating-age"></span>
+      </div>
+
+      <p id="project-description"></p>
+
+      <a id="watch-button" class="btn primary" href="#" hidden>▶ Přehrát</a>
+
+    </div>
+  </section>
+
+  <section class="film-detail">
+    <h2>O projektu</h2>
+    <p id="project-long-description"></p>
+
+    <h2>Obsazení</h2>
+    <ul id="project-cast"></ul>
+
+    <h2>Tvůrci</h2>
+    <ul id="project-creators"></ul>
+  </section>
+
+</main>
+
+<script src="film.js" defer></script>
+
+</body>
+</html>
+

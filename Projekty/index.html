@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CraftCinema - Projekty</title>
+
+  <link rel="stylesheet" href="../home.css" />
+  <link rel="stylesheet" href="projekty.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <div class="logo">CraftCinema</div>
+    </div>
+
+    <nav class="header-nav">
+      <a href="../Home/" class="nav-link">Domov</a>
+      <a href="../Projekty/" class="nav-link">Projekty</a>
+      <a href="../Novinky/" class="nav-link">Novinky</a>
+      <a href="../casting-daberi/" class="nav-link">Castingy - Dabéři</a>
+      <a href="../casting-role/" class="nav-link">Castingy - Ostatní Role</a>
+      <a href="../nabor-a-team/" class="nav-link">Nábor - A-Team</a>
+    </nav>
+  </header>
+
+  <main class="projects-page">
+    <section class="projects-header">
+      <h1>Naše projekty</h1>
+      <p>Filmy, seriály a sketche z CraftCinema studia</p>
+    </section>
+
+    <section class="projects-filters" aria-label="Filtry projektů">
+      <div class="filter-field filter-field-wide">
+        <label for="filter-title">Hledat podle názvu</label>
+        <input
+          id="filter-title"
+          type="search"
+          placeholder="Např. Poslední úklid"
+        />
+      </div>
+
+      <div class="filter-field">
+        <label for="filter-genre">Žánr</label>
+        <select id="filter-genre">
+          <option value="">Všechny žánry</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filter-duration-min">Délka od (min)</label>
+        <input
+          id="filter-duration-min"
+          type="number"
+          min="0"
+          step="1"
+          placeholder="0"
+        />
+      </div>
+
+      <div class="filter-field">
+        <label for="filter-duration-max">Délka do (min)</label>
+        <input
+          id="filter-duration-max"
+          type="number"
+          min="0"
+          step="1"
+          placeholder="180"
+        />
+      </div>
+
+      <button id="reset-filters" class="reset-filters-button" type="button">
+        Zrušit filtry
+      </button>
+    </section>
+
+    <section class="projects-results-bar">
+      <p id="results-info">Načítám seznam projektů...</p>
+    </section>
+
+    <section id="project-list" class="project-grid" aria-live="polite"></section>
+  </main>
+
+  <script src="projekty.js"></script>
+</body>
+</html>

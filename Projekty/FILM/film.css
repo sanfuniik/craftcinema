@@ -1,0 +1,52 @@
+.film-page {
+  margin-top: 72px;
+}
+
+/* HERO */
+.film-hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 60px 8vw;
+}
+
+.film-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4);
+}
+
+.film-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.film-hero h1 {
+  font-size: 56px;
+  margin-bottom: 10px;
+}
+
+.meta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.meta span {
+  background: rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* DETAIL */
+.film-detail {
+  padding: 60px 8vw;
+}
+
+.film-detail h2 {
+  margin-top: 30px;
+}
