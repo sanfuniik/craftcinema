@@ -14,3 +14,8 @@
   to = "/home/home.html"
   status = 200
   force = false
+
+[[redirects]]
+  from = "/FILM/*"
+  to = "/FILM/film.html"
+  status = 200
