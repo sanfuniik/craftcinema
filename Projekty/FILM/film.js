@@ -4,8 +4,6 @@ const API_URL =
 const PLACEHOLDER_IMAGE =
   "https://placehold.co/500x740?text=No+Image";
 
-console.log("🔥 film.js START");
-
 document.addEventListener("DOMContentLoaded", () => {
   loadProjectDetail();
 });
@@ -26,8 +24,6 @@ async function loadProjectDetail() {
     const res = await fetch(API_URL);
     const json = await res.json();
 
-    console.log("📦 API:", json);
-
     const project = json.data.find(
       (p) => String(p.id).trim() === String(id).trim()
     );
@@ -38,7 +34,6 @@ async function loadProjectDetail() {
 
     if (state) state.textContent = "";
   } catch (err) {
-    console.error(err);
     if (state) state.textContent = "Chyba při načítání";
   }
 }
@@ -46,11 +41,8 @@ async function loadProjectDetail() {
 function getImage(p) {
   const img = p?.project_images?.[0];
 
-  console.log("🖼 RAW IMAGE DATA:", img);
-
   if (!img) return PLACEHOLDER_IMAGE;
 
-  // 🔥 HLAVNÍ FIX – přesně tvůj DB field
   if (typeof img === "string") return img;
 
   if (img?.image_url) return img.image_url;
@@ -60,10 +52,7 @@ function getImage(p) {
   return PLACEHOLDER_IMAGE;
 }
 
-
 function render(p) {
-  console.log("🎬 PROJECT:", p);
-
   const set = (id, val) => {
     const el = document.getElementById(id);
     if (el) el.textContent = val || "";
@@ -75,20 +64,18 @@ function render(p) {
   set("project-title", p.title);
   set("project-year", p.release_year);
   set(
-  "project-duration",
-  p.duration_minutes != null ? `${p.duration_minutes} min` : "N/A"
-);
-
+    "project-duration",
+    p.duration_minutes != null ? `${p.duration_minutes} min` : "N/A"
+  );
   set("project-genre", p.genre);
   set("project-description", p.short_description);
   set("project-long-description", p.full_description);
   set(
-  "project-rating-age",
-  p.age_rating != null && p.age_rating !== ""
-    ? p.age_rating
-    : "N/A"
-);
-
+    "project-rating-age",
+    p.age_rating != null && p.age_rating !== ""
+      ? p.age_rating
+      : "N/A"
+  );
 
   // 🖼 BACKGROUND
   const bg = document.getElementById("project-backdrop");
@@ -96,9 +83,8 @@ function render(p) {
     bg.style.backgroundImage = `url('${image}')`;
   }
 
-  // 👥 CAST FIX (DB: cast_members)
+  // 👥 CAST
   const castEl = document.getElementById("project-cast");
-
   if (castEl) {
     const cast = p.cast_members;
 
@@ -111,34 +97,43 @@ function render(p) {
     }
   }
 
-  // 🎬 DIRECTOR (bonus)
+  // 🎬 DIRECTOR
   const creatorsEl = document.getElementById("project-creators");
-
   if (creatorsEl) {
     creatorsEl.innerHTML = p.director
       ? `<li>${p.director}</li>`
       : "<li>Neuvedeno</li>";
   }
-// ▶️ WATCH BUTTON
-const watchBtn = document.getElementById("watch-button");
-const state = document.getElementById("project-state");
 
-if (watchBtn) {
-  const url = p.url;
+  // ▶️ WATCH BUTTON (FINÁLNÍ VERZE)
+  const watchBtn = document.getElementById("watch-button");
+  const state = document.getElementById("project-state");
 
-  // zobraz tlačítko vždy
-  watchBtn.hidden = false;
+  if (watchBtn) {
+    const url = p.url;
 
-  if (url && url.trim() !== "") {
-    watchBtn.href = url;
-  } else {
-    watchBtn.href = "#";
+    // zobraz tlačítko
+    watchBtn.hidden = false;
 
-    watchBtn.onclick = (e) => {
-      e.preventDefault();
-      if (state) {
-        state.textContent = "Projekt nebyl doposud zveřejněn";
-      }
-    };
+    // reset handleru (důležité!)
+    watchBtn.onclick = null;
+
+    if (url && url.trim() !== "") {
+      watchBtn.href = url;
+      watchBtn.target = "_blank"; // otevře v novém tabu
+      watchBtn.style.opacity = "1";
+      watchBtn.style.pointerEvents = "auto";
+    } else {
+      watchBtn.href = "#";
+      watchBtn.style.opacity = "0.6";
+
+      watchBtn.onclick = (e) => {
+        e.preventDefault();
+        if (state) {
+          state.textContent = "Projekt nebyl doposud zveřejněn";
+        }
+      };
+    }
   }
 }
+
