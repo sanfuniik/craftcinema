@@ -4,10 +4,10 @@ const API_URL =
 const listEl = document.getElementById("news-list");
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadNews();
+  loadContent();
 });
 
-async function loadNews() {
+async function loadContent() {
   try {
     const res = await fetch(API_URL);
     const json = await res.json();
