@@ -3,6 +3,9 @@ const API_URL =
 
 const PLACEHOLDER_IMAGE = "https://placehold.co/400x250?text=No+Image";
 
+const STORAGE_BASE =
+  "https://ghaiizikzetdoepigdvs.supabase.co/storage/v1/object/public/project-images/";
+
 let allProjects = [];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -105,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     render(filtered);
 
-    const resultsInfoEl = document.getElementById("results-info");
     if (resultsInfoEl) {
       resultsInfoEl.textContent = `Zobrazeno ${filtered.length} / ${allProjects.length}`;
     }
@@ -150,15 +152,15 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   }
 
-  /* 🔥 KRITICKÁ FIXACE OBRÁZKŮ */
+  /* 🔥 FIX: IMAGE Z SUPABASE image_path */
   function getImage(p) {
-    const img = p?.project_images?.[0];
+    const path = p?.image_path;
 
-    if (!img) return PLACEHOLDER_IMAGE;
+    if (!path) return PLACEHOLDER_IMAGE;
 
-    if (typeof img === "string") return img;
+    if (path.startsWith("http")) return path;
 
-    return img?.url || img?.image_url || PLACEHOLDER_IMAGE;
+    return STORAGE_BASE + path.split("/").map(encodeURIComponent).join("/");
   }
 
   function escape(v) {
@@ -168,4 +170,3 @@ document.addEventListener("DOMContentLoaded", () => {
       .replaceAll(">", "&gt;");
   }
 });
-
