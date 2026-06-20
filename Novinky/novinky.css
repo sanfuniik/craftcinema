@@ -49,6 +49,19 @@
   line-height: 1.5;
 }
 
+.news-meta-row {
+  margin-top: 12px;
+}
+
+.news-date {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(220, 215, 240, 0.85);
+  font-size: 12px;
+}
+
 .news-meta {
   font-size: 13px;
   opacity: 0.7;
@@ -56,4 +69,8 @@
 
 .loading {
   color: rgba(220, 215, 240, 0.8);
+}
+
+.loading.error {
+  color: #ffb4b4;
 }
