@@ -1,6 +1,9 @@
 const API_URL =
   "https://ghaiizikzetdoepigdvs.supabase.co/functions/v1/get-projects";
 
+const SUPABASE_STORAGE_BASE =
+  "https://ghaiizikzetdoepigdvs.supabase.co/storage/v1/object/public/project-images/";
+
 const PLACEHOLDER_IMAGE =
   "https://placehold.co/500x740?text=No+Image";
 
@@ -38,18 +41,16 @@ async function loadProjectDetail() {
   }
 }
 
+/* 🔥 SPRÁVNÝ SUPABASE IMAGE BUILDER */
 function getImage(p) {
-  const img = p?.project_images?.[0];
+  const path = p?.image_path;
 
-  if (!img) return PLACEHOLDER_IMAGE;
+  if (!path) return PLACEHOLDER_IMAGE;
 
-  if (typeof img === "string") return img;
+  // pokud už je full URL
+  if (path.startsWith("http")) return path;
 
-  if (img?.image_url) return img.image_url;
-
-  if (img?.url) return img.url;
-
-  return PLACEHOLDER_IMAGE;
+  return SUPABASE_STORAGE_BASE + path;
 }
 
 function render(p) {
@@ -77,7 +78,7 @@ function render(p) {
       : "N/A"
   );
 
-  // 🖼 BACKGROUND
+  // 🖼 BACKDROP
   const bg = document.getElementById("project-backdrop");
   if (bg) {
     bg.style.backgroundImage = `url('${image}')`;
@@ -105,22 +106,19 @@ function render(p) {
       : "<li>Neuvedeno</li>";
   }
 
-  // ▶️ WATCH BUTTON (FINÁLNÍ VERZE)
+  // ▶️ WATCH BUTTON
   const watchBtn = document.getElementById("watch-button");
   const state = document.getElementById("project-state");
 
   if (watchBtn) {
     const url = p.url;
 
-    // zobraz tlačítko
     watchBtn.hidden = false;
-
-    // reset handleru (důležité!)
     watchBtn.onclick = null;
 
     if (url && url.trim() !== "") {
       watchBtn.href = url;
-      watchBtn.target = "_blank"; // otevře v novém tabu
+      watchBtn.target = "_blank";
       watchBtn.style.opacity = "1";
       watchBtn.style.pointerEvents = "auto";
     } else {
@@ -136,4 +134,3 @@ function render(p) {
     }
   }
 }
-
